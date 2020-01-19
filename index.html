@@ -9,24 +9,24 @@
         <h1>Pomodoro Clock</h1>
         <div id="topBlock">
             <div>
-                <p id ="sessionText">Session</p>
-                <p id="breakText">Break</p>
+                <h2 id ="sessionText">Session</h2>
+                <h2 id="breakText">Break</h2>
             </div>
             <div>
-                <button class="upBtn"><</button>
-                <p id="sessionTimeText">43,560</p>
-                <button class="downBtn">></button>
-                <button class="upBtn"><</button>
-                <p id="breakTimeText">43,560</p>
-                <button class="downBtn">></buttonclass="downBtn">
+                <button id="downLeftBtn" onclick="decreaseTime('#sessionTimeText')"><</button>
+                <p id="sessionTimeText">25</p>
+                <button class="upLeftBtn" onclick="increaseTime('#sessionTimeText')">></button>
+                <button class="downRightBtn" onclick="decreaseTime('#breakTimeText')"><</button>
+                <p id="breakTimeText">5</p>
+                <button class="upRightBtn" onclick="increaseTime('#breakTimeText')">></buttonclass="downBtn">
             </div>
         </div>
         <div id="bottomBlock">
-            <input type="image" src="image/play-pause-btn.png"/>
+            <input onclick="count()" type="image" src="image/play-pause-btn.png"/>
             <input type="image" src="image/stop-btn.png"/>
             <input type="image" src="image/replay-btn.png"/>
             <p id="showSessionOrBreak">Session</p>
-            <p id="timeCountDown">67465</p>
+            <p id="timeCountDown">1:00</p>
         </div>
 
 

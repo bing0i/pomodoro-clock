@@ -9,9 +9,11 @@ input[type="image"] {
 
 #topBlock {
     width: 500px;
-    height: 100px;
+    height: 200px;
     text-align: center;
-    margin: 0 auto;
+    margin: 10px auto;
+    background-color: #c5c5c5;
+    color: black;
 }
 
 #bottomBlock {
@@ -19,8 +21,26 @@ input[type="image"] {
     height: 500px;
     text-align: center;
     margin: 0 auto;
+    background-color: #c5c5c5;
+    color: black;
 }
 
 #sessionText, #breakText, #sessionTimeText, #breakTimeText {
     display: inline-block;
+}
+
+body {
+    background-color: black;
+}
+
+#sessionText {
+    margin-right: 100px;
+}
+
+.downLeftBtn {
+    margin-right: 70px;
+}
+
+h1 {
+    color: white;
 }
