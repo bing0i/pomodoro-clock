@@ -13,20 +13,21 @@
                 <h2 id="breakText">Break</h2>
             </div>
             <div>
-                <button id="downLeftBtn" onclick="decreaseTime('#sessionTimeText')"><</button>
-                <p id="sessionTimeText">25</p>
-                <button class="upLeftBtn" onclick="increaseTime('#sessionTimeText')">></button>
-                <button class="downRightBtn" onclick="decreaseTime('#breakTimeText')"><</button>
-                <p id="breakTimeText">5</p>
-                <button class="upRightBtn" onclick="increaseTime('#breakTimeText')">></buttonclass="downBtn">
+                <button id="downLeftBtn" onclick="decreaseTime('#sessionTimeText', true)"><</button>
+                <p id="sessionTimeText"></p>
+                <button id="upLeftBtn" onclick="increaseTime('#sessionTimeText', true)">></button>
+                <button id="downRightBtn" onclick="decreaseTime('#breakTimeText', false)"><</button>
+                <p id="breakTimeText"></p>
+                <button id="upRightBtn" onclick="increaseTime('#breakTimeText', false)">></buttonclass="downBtn">
             </div>
         </div>
         <div id="bottomBlock">
-            <input onclick="count()" type="image" src="image/play-pause-btn.png"/>
-            <input type="image" src="image/stop-btn.png"/>
-            <input type="image" src="image/replay-btn.png"/>
-            <p id="showSessionOrBreak">Session</p>
-            <p id="timeCountDown">1:00</p>
+            <input id="playBtn" onclick="play()" type="image" src="image/play-btn.jpg"/>
+            <input id="replayBtn" type="image" src="image/replay-btn.png"/>
+            <h3 id="showSessionOrBreak">Session</h3>
+            <p id="timeCountDown"></p>
+            <input id="pauseBtn" type="image" src="image/pause-btn.png"/>
+            <input id="stopBtn" type="image" src="image/stop-btn.png"/>
         </div>
 
 
