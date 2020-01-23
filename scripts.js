@@ -4,22 +4,36 @@ function decreaseTime(para, bool) {
         return;
     time.innerText = Number(time.innerText) - 1;
     if (bool)
-        setSession(false, true);
+        setCountdown(false, true);
 }
 
 function increaseTime(para, bool) {
     let time = document.querySelector(para);
     time.innerText = Number(time.innerText) + 1;
     if (bool)
-        setSession(true, true);
+        setCountdown(true, true);
 }
 
-function setSession(flag, flagHour, countDown) {
+function setCountdown(flag, flagHour, countDown) {
     let strTime = document.querySelector('#timeCountDown');
     let intTime = toIntTime(strTime.innerText);
     if (intTime === 0) {
-        clearInterval(countDown); 
+        clearInterval(countDown);
+        let text = document.querySelector('#showSessionOrBreak');
+        if (text.innerText === 'Session') {
+            setBreak();
+            play();
+        }
+        else {
+            let timeSession = document.querySelector('#sessionTimeText');
+            let timeBreak = document.querySelector('#breakTimeText');
+            setTime(timeSession.innerText, timeBreak.innerText);
+            play();
+        }
         return;
+    }
+    else if (intTime <= 11) {
+        strTime.style.color = '#660000';
     }
     if (flagHour && flag) {
         intTime += 60;
@@ -68,6 +82,8 @@ function toStrTime(intTime) {
 }
 
 function play() {
+    let time = document.querySelector('#timeCountDown');
+    time.style.color = '#208000';
     disableButtons(true);
     let  countdown = setInterval(function() {
         document.querySelector('#pauseBtn').disabled = false;
@@ -83,16 +99,24 @@ function play() {
             let time = document.querySelector('#timeCountDown');
             let selectedTime = document.querySelector('#sessionTimeText');
             time.innerText = selectedTime.innerText + ':00';
+            let text = document.querySelector('#showSessionOrBreak');
+            if (text.innerText === 'Break') 
+                setBreak();
+            else {
+                let timeSession = document.querySelector('#sessionTimeText');
+                let timeBreak = document.querySelector('#breakTimeText');
+                setTime(timeSession.innerText, timeBreak.innerText);
+            }
             disableButtons(false);
         }
 
         document.querySelector('#replayBtn').onclick = function() {
             clearInterval(countdown);
             disableButtons(false);
-            setTime();
+            setTime('25', '5');
         }
 
-        setSession(false, false, countdown);
+        setCountdown(false, false, countdown);
     }, 1000);
 }
 
@@ -104,14 +128,15 @@ function disableButtons(bool) {
     document.querySelector('#playBtn').disabled = bool;
 }
 
-function setTime() {
+function setTime(sessionTime, breakTime) {
     let time = document.querySelector('#timeCountDown');
     let selectedSessionTime = document.querySelector('#sessionTimeText');
     let selectedBreakTime = document.querySelector('#breakTimeText');
     let text = document.querySelector('#showSessionOrBreak');
-    selectedSessionTime.innerText = '25';
-    selectedBreakTime.innerText = '5';
+    selectedSessionTime.innerText = sessionTime;
+    selectedBreakTime.innerText = breakTime;
     time.innerText = selectedSessionTime.innerText + ':00';
+    time.style.color = '#999999';
     text.innerText = 'Session';
 }
 
@@ -121,7 +146,7 @@ function setBreak() {
     let selectedBreakTime = document.querySelector('#breakTimeText');
     text.innerText = 'Break';
     time.innerText = selectedBreakTime.innerText + ':00';
-    play();
+    time.style.color = '#999999';
 }
 
-setTime();
+setTime('25', '5');
