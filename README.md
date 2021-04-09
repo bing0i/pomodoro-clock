@@ -1,9 +1,9 @@
 # Pomodoro Clock
 
-## Description
-
 This is an assignment from [The Odin Project](https://www.theodinproject.com/courses/web-development-101/lessons/pairing-project).
 Unfortunately, although this is a pairing project, I did this project by myself.
+
+## Description
 
 Pomodoro clock is a famous technique for time management: concentrate in 25 minutes, break in 5 minutes, and keep doing this cycle as long as you can.
 
